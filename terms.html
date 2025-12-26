@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Evergreen Home Contractors</title>
+
+  <link rel="icon" href="/home/user/Desktop/evergreen/images/logo/logo-removedbg.png">
+
+  <style>
+    * {box-sizing: border-box; margin: 0; padding: 0;}
+    body {font-family: Arial, Helvetica, sans-serif; padding-top: 88px;}
+    a {text-decoration: none; color: inherit;}
+
+    /* ================= HEADER (GLOBAL) ================= */
+    #site-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #2C6B3F;
+      z-index: 1000;
+      transition: transform .3s ease;
+    }
+
+    #site-header.hide {
+      transform: translateY(-100%);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {height: 96px;}
+
+    .main-nav ul {list-style: none; display: flex; gap: 40px;}
+    .main-nav a {
+      color: #fff;
+      font-weight: 500;
+      position: relative;
+    }
+    .main-nav a:hover::after, .main-nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+    }
+
+    .cta-button {
+      border: 2px solid #fff;
+      padding: 10px 22px;
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 600;
+      transition: .2s;
+      display: inline-block;
+    }
+
+    .cta-button:hover {background: #fff; color: #2C6B3F;}
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {width: 26px; height: 3px; background: #fff;}
+
+    .mobile-nav {
+      display: none;
+      background: #2C6B3F;
+      padding: 24px;
+    }
+
+    .mobile-nav.active {
+      display: block;
+    }
+
+    .mobile-nav ul {list-style: none; display: flex; flex-direction: column; gap: 20px;}
+    .mobile-nav a {color: #fff; font-size: 18px;}
+
+    /* ================= ABOUT PAGE ================= */
+    .about-hero {
+      height: 70vh;
+      margin-top: 84px;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('/home/user/Desktop/evergreen/images/website_media/landscape.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      padding: 0 24px;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .about-hero p {
+      max-width: 720px;
+      font-size: 1.25rem;
+      opacity: 0.95;
+      margin: auto;
+    }
+
+    /* ================= CONTENT ================= */
+    .about-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 24px;
+    }
+
+    .about-section h2 {
+      font-size: 2.1rem;
+      margin-bottom: 22px;
+      letter-spacing: -0.4px;
+      color: #2C6B3F;
+    }
+
+    .about-section p {
+      max-width: 880px;
+      font-size: 1.05rem;
+      color: #111827;
+    }
+
+    /* ================= VALUES ================= */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      margin-top: 70px;
+    }
+
+    .value-card {
+      border: 1px solid #e5e5e5;
+      padding: 36px;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .value-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #2C6B3F;
+    }
+
+    .value-card p {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    /* ================= CTA ================= */
+    .about-cta {
+      background: #2C6B3F;
+      color: #ffffff;
+      text-align: center;
+      padding: 90px 24px;
+    }
+
+    .about-cta h2 {
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+    }
+
+    .about-cta p {
+      font-size: 1.1rem;
+      margin-bottom: 34px;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #2C6B3F;
+      font-weight: 700;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .values {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================= FOOTER ================= */
+    .site-footer {
+      background: #2C6B3F;
+      color: #ffffff;
+      padding: 60px 24px 30px;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-logos {
+      grid-column: span 2;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .footer-logo-item img {
+      height: 50px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 12px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header id="site-header">
+  <div class="header-inner">
+    <a class="logo" href="home.html">
+      <img src="images/logo-removedbg.png" alt="Evergreen Home Contractors">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a class="active" href="about.html">About</a></li>
+        <li><a href="financing.html">Financing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="cta-button" href="contact.html">Request a Quote</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="financing.html">Financing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<section class="about-section">
+  <h2>Terms of Service</h2>
+
+  <p>
+    These Terms of Service (“Terms”) constitute a legally binding agreement between
+    you (“Client,” “User,” or “you”) and Evergreen Home Contractors, including its
+    owners, officers, employees, agents, affiliates, subcontractors, and
+    representatives (“Company,” “we,” “our,” or “us”). These Terms govern your
+    access to and use of this website, all communications, consultations, estimates,
+    proposals, contracts, construction services, and any related materials or
+    information provided by the Company.
+  </p>
+
+  <p>
+    By accessing this website, submitting an inquiry, requesting an estimate,
+    signing a contract, or otherwise engaging with Evergreen Home Contractors in
+    any manner, you expressly acknowledge that you have read, understood, and
+    agree to be bound by these Terms in full, without limitation or qualification.
+    If you do not agree to these Terms, you must immediately discontinue use of
+    this website and refrain from engaging the Company’s services.
+  </p>
+
+  <h3>Scope of Services and Website Use</h3>
+  <p>
+    Evergreen Home Contractors provides residential and commercial construction
+    services, which may include, but are not limited to, roofing and roof repairs,
+    custom pool construction, custom kitchens, landscaping and hardscapes,
+    outdoor living spaces, exterior renovations, and related construction or
+    improvement services. All descriptions of services on this website are
+    provided for general informational purposes only and do not constitute an
+    offer, guarantee, or promise of specific results.
+  </p>
+
+  <p>
+    The Company reserves the right to modify, suspend, or discontinue any portion
+    of its services, website content, or offerings at any time, with or without
+    notice. Access to this website is provided “as is” and “as available,” and
+    the Company makes no representations regarding uninterrupted or error-free
+    operation.
+  </p>
+
+  <h3>Estimates, Proposals, and Pricing</h3>
+  <p>
+    All estimates, quotes, proposals, and pricing information provided by
+    Evergreen Home Contractors are preliminary and non-binding unless expressly
+    stated otherwise in a written agreement executed by both parties. Estimates
+    are based on visual inspections, client-provided information, and conditions
+    observable at the time of evaluation.
+  </p>
+
+  <p>
+    Final pricing may vary due to changes in project scope, material availability,
+    labor costs, site conditions, permitting requirements, inspections, code
+    compliance issues, or unforeseen circumstances. Any changes or additions to
+    the agreed scope of work must be approved in writing and may result in
+    additional costs and adjusted timelines.
+  </p>
+
+  <h3>Client Responsibilities and Site Conditions</h3>
+  <p>
+    The Client is solely responsible for providing accurate, complete, and
+    truthful information regarding the property, including but not limited to
+    boundaries, utilities, underground conditions, structural integrity, access
+    limitations, existing damage, and any known hazards. Failure to disclose
+    relevant information may result in delays, additional costs, or termination
+    of services.
+  </p>
+
+  <p>
+    The Client agrees to provide reasonable access to the project site during
+    normal working hours and to ensure that pets, occupants, and personal
+    property are secured and protected. The Company shall not be responsible
+    for damage resulting from undisclosed conditions or restricted access.
+  </p>
+
+  <h3>Scheduling, Delays, and Force Majeure</h3>
+  <p>
+    All project timelines and completion dates are estimates only and are subject
+    to change. Evergreen Home Contractors shall not be liable for delays caused
+    by weather conditions, material shortages, supply chain disruptions,
+    inspection delays, permitting issues, acts of government, labor disputes,
+    natural disasters, or other events beyond the Company’s reasonable control.
+  </p>
+
+  <p>
+    In the event of delays caused by force majeure or unforeseen circumstances,
+    the Company shall be entitled to reasonable extensions of time without
+    penalty or liability.
+  </p>
+
+  <h3>Payment Terms</h3>
+  <p>
+    Payment terms, including deposits, progress payments, and final balances,
+    shall be outlined in the applicable written agreement. Failure to make timely
+    payments may result in suspension of work, additional fees, or termination
+    of services.
+  </p>
+
+  <p>
+    The Company reserves the right to pursue all legal remedies available for
+    non-payment, including but not limited to collection efforts, lien rights,
+    and recovery of reasonable attorney’s fees and costs as permitted by law.
+  </p>
+
+  <h3>Warranties and Disclaimers</h3>
+  <p>
+    Any warranties provided by Evergreen Home Contractors shall be expressly
+    stated in writing and limited to the terms outlined therein. Manufacturer
+    warranties for materials, products, or equipment are provided solely by the
+    respective manufacturers and are subject to their terms and conditions.
+  </p>
+
+  <p>
+    Except as expressly stated, the Company disclaims all other warranties,
+    whether express, implied, statutory, or otherwise, including warranties of
+    merchantability, fitness for a particular purpose, or non-infringement.
+  </p>
+
+  <h3>Limitation of Liability</h3>
+  <p>
+    To the fullest extent permitted by law, Evergreen Home Contractors shall not
+    be liable for any indirect, incidental, consequential, special, exemplary,
+    or punitive damages arising out of or related to the use of this website or
+    the services provided, even if advised of the possibility of such damages.
+  </p>
+
+  <p>
+    The Company’s total aggregate liability, whether in contract, tort, or
+    otherwise, shall not exceed the total amount paid by the Client for the
+    specific services giving rise to the claim.
+  </p>
+
+  <h3>Indemnification</h3>
+  <p>
+    The Client agrees to indemnify, defend, and hold harmless Evergreen Home
+    Contractors from and against any and all claims, damages, losses,
+    liabilities, costs, and expenses arising out of or related to the Client’s
+    use of the website, breach of these Terms, or misuse of services.
+  </p>
+
+  <h3>Intellectual Property Rights</h3>
+  <p>
+    All content on this website, including but not limited to text, images,
+    logos, graphics, designs, and layout, is the exclusive property of Evergreen
+    Home Contractors and is protected by applicable intellectual property laws.
+    Unauthorized use, reproduction, or distribution is strictly prohibited.
+  </p>
+
+  <h3>Third-Party Services and Links</h3>
+  <p>
+    This website may contain links to third-party websites or services for
+    convenience purposes only. The Company does not control, endorse, or assume
+    responsibility for the content, policies, or practices of any third-party
+    sites.
+  </p>
+
+  <h3>Governing Law and Jurisdiction</h3>
+  <p>
+    These Terms shall be governed by and construed in accordance with the laws
+    of the state and jurisdiction in which Evergreen Home Contractors operates,
+    without regard to conflict of law principles. Any legal action arising under
+    these Terms shall be brought exclusively in the appropriate courts of that
+    jurisdiction.
+  </p>
+
+  <h3>Severability</h3>
+  <p>
+    If any provision of these Terms is found to be invalid or unenforceable,
+    the remaining provisions shall remain in full force and effect.
+  </p>
+
+  <h3>Entire Agreement</h3>
+  <p>
+    These Terms constitute the entire agreement between the parties regarding
+    the subject matter herein and supersede all prior or contemporaneous
+    agreements, communications, or understandings, whether written or oral.
+  </p>
+
+  <h3>Changes to These Terms</h3>
+  <p>
+    Evergreen Home Contractors reserves the right to update or modify these Terms
+    at any time without prior notice. Continued use of the website or services
+    after such changes constitutes acceptance of the revised Terms.
+  </p>
+
+  <h3>Contact Information</h3>
+  <p>
+    Any questions regarding these Terms of Service should be directed to
+    Evergreen Home Contractors using the contact information provided on this
+    website.
+  </p>
+</section>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logos">
+      <div class="footer-logo-item">
+        <img src="images/google.png" alt="Google Guaranteed">
+        <p>Google Guaranteed <span class="rating">★★★★★</span></p>
+      </div>
+      <div class="footer-logo-item">
+        <img src="images/pha.png" alt="Pool & Hot Tub Alliance">
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="financing.html">Financing</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="services.html">Roofing & Repairs</a></li>
+        <li><a href="services.html">Custom Pools</a></li>
+        <li><a href="services.html">Custom Kitchens</a></li>
+        <li><a href="services.html">Landscaping & Hardscapes</a></li>
+        <li><a href="services.html">Exterior Renovations</a></li>
+        <li><a href="services.html">Outdoor Living Spaces</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Evergreen Home Contractors. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

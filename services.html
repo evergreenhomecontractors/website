@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services | Evergreen Home Contractors</title>
+
+<link rel="icon" href="/home/user/Desktop/evergreen/images/logo/logo-removedbg.png" type="image/png">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;padding-top:88px}
+a{text-decoration:none;color:inherit}
+
+/* ================= HEADER (SAME AS HOME) ================= */
+#site-header{
+  position:fixed;top:0;width:100%;
+  background:#2C6B3F;
+  z-index:1000;
+  transition:transform .3s ease
+}
+#site-header.hide{transform:translateY(-100%)}
+
+.header-inner{
+  max-width:1400px;margin:auto;
+  padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between
+}
+.logo img{height:96px}
+
+.main-nav ul{list-style:none;display:flex;gap:40px}
+.main-nav a{color:#fff;font-weight:500;position:relative}
+.main-nav a:hover::after,
+.main-nav a.active::after{
+  content:"";position:absolute;left:0;bottom:-8px;width:100%;height:2px;background:#fff
+}
+
+.cta-button{
+  border:2px solid #fff;
+  padding:10px 22px;
+  border-radius:999px;
+  color:#fff;font-weight:600;
+  transition:.2s;
+  display:inline-block
+}
+.cta-button:hover{background:#fff;color:#2C6B3F}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer
+}
+.hamburger span{width:26px;height:3px;background:#fff}
+
+.mobile-nav{
+  display:none;
+  background:#2C6B3F;
+  padding:24px
+}
+.mobile-nav.active{display:block}
+.mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:20px}
+.mobile-nav a{color:#fff;font-size:18px}
+
+/* ================= SERVICES PAGE ================= */
+.services-hero{
+  background:#f4f7f5;
+  padding:80px 24px 60px;
+  text-align:center
+}
+.services-hero h1{
+  font-size:3rem;
+  color:#2C6B3F
+}
+.services-hero p{
+  max-width:720px;
+  margin:14px auto 0;
+  font-size:1.15rem;
+  color:#333;
+  line-height:1.6
+}
+
+.services-wrapper{
+  max-width:1400px;
+  margin:auto;
+  padding:80px 24px
+}
+
+.service{
+  margin-bottom:100px
+}
+
+.service h2{
+  font-size:2.2rem;
+  color:#2C6B3F;
+  margin-bottom:10px
+}
+
+.service p{
+  max-width:700px;
+  font-size:1.05rem;
+  line-height:1.6;
+  margin-bottom:30px;
+  color:#333
+}
+
+.service-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px
+}
+
+.service-gallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:6px
+}
+
+/* ================= FOOTER (SAME AS HOME) ================= */
+.site-footer{
+  background-color:#2C6B3F;
+  color:#ffffff;
+  padding:60px 24px 30px
+}
+
+.footer-inner{
+  max-width:1400px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+  gap:40px
+}
+
+.footer-logos{
+  grid-column:span 2;
+  display:flex;
+  gap:40px;
+  align-items:center
+}
+
+.footer-logo-item img{height:50px}
+.footer-logo-item p{font-size:14px}
+
+.footer-column h4{
+  font-size:16px;
+  margin-bottom:12px;
+  font-weight:600
+}
+
+.footer-column ul{list-style:none}
+.footer-column li{margin-bottom:8px}
+.footer-column a{font-size:14px}
+
+.footer-bottom{
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.2);
+  display:flex;
+  justify-content:space-between;
+  font-size:13px
+}
+
+@media(max-width:900px){
+  .service-gallery{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;text-align:center}
+}
+/* ================= SERVICES CTA ================= */
+.services-cta {
+  background: linear-gradient(
+    rgba(44, 107, 63, 0.95),
+    rgba(44, 107, 63, 0.95)
+  ),
+  url('/home/user/Desktop/evergreen/images/website_media/landscape.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 90px 24px;
+  color: #ffffff;
+}
+
+.services-cta-inner {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.services-cta h2 {
+  font-size: 2.6rem;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.services-cta p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+
+@media (max-width: 900px) {
+  .services-cta {
+    padding: 70px 20px;
+  }
+
+  .services-cta h2 {
+    font-size: 2.1rem;
+  }
+
+  .services-cta p {
+    font-size: 1.05rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="site-header">
+  <div class="header-inner">
+    <a class="logo" href="home.html">
+      <img src="images/logo-removedbg.png" alt="Evergreen Home Contractors logo">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a class="active" href="services.html">Services</a></li>
+        <li><a href="financing.html">Financing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="cta-button" href="contact.html">Request a Quote</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="financing.html">Financing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<section class="services-hero">
+  <h1>Our Services</h1>
+  <p>Premium exterior construction and outdoor living solutions built with craftsmanship, durability, and care.</p>
+</section>
+
+<main class="services-wrapper">
+
+  <section class="service">
+    <h2>Roofing & Repairs</h2>
+    <p>High-quality roofing systems, repairs, and storm restoration designed to protect your investment.</p>
+    <div class="service-gallery">
+      <img src="images/roof1.jpg"><img src="images/roof2.jpg"><img src="images/roof3.jpg">
+    </div>
+  </section>
+
+  <section class="service">
+    <h2>Custom Pools</h2>
+    <p>Luxury custom pools engineered for beauty, comfort, and long-term performance.</p>
+    <div class="service-gallery">
+      <img src="images/pool1.jpg"><img src="images/pool2.jpg"><img src="images/pool3.jpg">
+    </div>
+  </section>
+
+  <section class="service">
+    <h2>Custom Kitchens</h2>
+    <p>Outdoor and exterior kitchen spaces designed for entertaining and everyday living.</p>
+    <div class="service-gallery">
+      <img src="images/kitchen1.jpg"><img src="images/kitchen2.jpg"><img src="images/kitchen3.jpg">
+    </div>
+  </section>
+
+  <section class="service">
+    <h2>Landscaping & Hardscapes</h2>
+    <p>Complete landscape transformations including patios, walkways, stonework, and grading.</p>
+    <div class="service-gallery">
+      <img src="images/landscape1.jpg"><img src="images/landscape2.jpg"><img src="images/landscape3.jpg">
+    </div>
+  </section>
+
+  <section class="service">
+    <h2>Outdoor Living Spaces</h2>
+    <p>Custom patios, pergolas, fire features, and outdoor environments built for comfort.</p>
+    <div class="service-gallery">
+      <img src="images/outdoor1.jpg"><img src="images/outdoor2.jpg"><img src="images/outdoor3.jpg">
+    </div>
+  </section>
+
+</main>
+<!-- SERVICES CTA -->
+<section class="services-cta">
+  <div class="services-cta-inner">
+    <h2>Ready to Start Your Project?</h2>
+    <p>
+      From roofing and renovations to luxury outdoor living, Evergreen Home
+      Contractors delivers craftsmanship you can trust.
+    </p>
+    <a href="contact.html" class="cta-button">Request a Quote</a>
+  </div>
+</section>
+
+	<footer class="site-footer">
+  	<div class="footer-inner">
+	
+    	<!-- CERTIFICATIONS & LOGOS -->
+    	<div class="footer-logos">
+      	<div class="footer-logo-item">
+        	<img src="images/google.png" alt="Google Guaranteed">
+        	<p>Google Guaranteed <span class="rating">★★★★★</span></p>
+      	</div>
+      	<div class="footer-logo-item">
+        	<img src="images/pha.png" alt="Pool & Hot Tub Alliance">
+      	</div>
+    	</div>
+	
+    	<!-- COMPANY -->
+    	<div class="footer-column">
+      	<h4>Company</h4>
+      	<ul>
+        	<li><a href="home.html">Home</a></li>
+        	<li><a href="about.html">About</a></li>
+        	<li><a href="financing.html">Financing</a></li>
+        	<li><a href="contact.html">Contact Us</a></li>
+      	</ul>
+    	</div>
+	
+    	<!-- POOLS -->
+    	<div class="footer-column">
+      	<h4>Our Services</h4>
+      	<ul>
+        	<li><a href="services.html">Roofing & Repairs</a></li>
+        	<li><a href="services.html">Custom Pools</a></li>
+        	<li><a href="services.html">Custom Kitchens</a></li>
+        	<li><a href="services.html">Landscaping & Hardscapes</a></li>
+        	<li><a href="services.html">Exterior Renovations</a></li>
+        	<li><a href="services.html">Outdoor Living Spaces</a></li>
+      	</ul>
+    	</div>
+	
+  	</div>
+	
+  	<div class="footer-bottom">
+    	<span>© <span id="year"></span> Evergreen Home Contractors. All rights reserved.</span>
+    	<div class="footer-links">
+      	<a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
+    	</div>
+  	</div>
+	</footer>
+
+<script>
+const header=document.getElementById("site-header");
+let lastY=0;
+window.addEventListener("scroll",()=>{
+  if(window.scrollY<=0) header.classList.remove("hide");
+  else if(window.scrollY>lastY) header.classList.add("hide");
+  else header.classList.remove("hide");
+  lastY=window.scrollY;
+});
+
+const hamburger=document.getElementById("hamburger");
+const mobileNav=document.getElementById("mobile-nav");
+hamburger.onclick=()=>mobileNav.classList.toggle("active");
+
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
